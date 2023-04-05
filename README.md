@@ -1,5 +1,6 @@
 # WebalkProjekt
 Csoportos Beadandó
+Egyetemi honlap létrehozása egy "Neptunos" backenddel.
 
 Lőrinczi Máté         lorinczimate219@gmail.com   https://github.com/xXHermitXx
 
