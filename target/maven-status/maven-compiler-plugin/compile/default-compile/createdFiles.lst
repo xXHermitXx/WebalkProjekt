@@ -1,0 +1,8 @@
+org\example\webapp\WebalkProjekt\config\UtilConfig.class
+org\example\webapp\WebalkProjekt\Main.class
+org\example\webapp\WebalkProjekt\controller\UniversityController.class
+org\example\webapp\WebalkProjekt\service\impl\UsersServiceImpl.class
+org\example\webapp\WebalkProjekt\dto\UsersDTO.class
+org\example\webapp\WebalkProjekt\entity\UsersEntity.class
+org\example\webapp\WebalkProjekt\service\UsersService.class
+org\example\webapp\WebalkProjekt\repository\UsersRepo.class
