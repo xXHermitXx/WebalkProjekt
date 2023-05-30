@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class UsersEntity {
+public class SessionEntity {
 
   @Id
   @GeneratedValue
@@ -13,11 +13,7 @@ public class UsersEntity {
 
   private String username;
 
-  private String password;
-
-  private boolean teacher;
-
-  public UsersEntity() {
+  public SessionEntity() {
   }
 
   public Long getId() {
@@ -36,19 +32,4 @@ public class UsersEntity {
     this.username = username;
   }
 
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-  public boolean isTeacher() {
-    return teacher;
-  }
-
-  public void setTeacher(boolean teacher) {
-    this.teacher = teacher;
-  }
 }

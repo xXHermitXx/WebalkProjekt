@@ -8,6 +8,8 @@ public class UsersDTO {
 
   private String password;
 
+  private boolean teacher;
+
   public UsersDTO() {
   }
 
@@ -33,5 +35,13 @@ public class UsersDTO {
 
   public void setPassword(String password) {
     this.password = password;
+  }
+
+  public boolean isTeacher() {
+    return teacher;
+  }
+
+  public void setTeacher(boolean teacher) {
+    this.teacher = teacher;
   }
 }

@@ -1,5 +1,6 @@
 package org.example.webapp.WebalkProjekt.controller;
 
+import org.example.webapp.WebalkProjekt.dto.SessionDTO;
 import org.example.webapp.WebalkProjekt.dto.UsersDTO;
 import org.example.webapp.WebalkProjekt.service.UsersService;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,17 @@ public class UniversityController {
     ResponseEntity<String> response;
 
     if(usersDTO1.isPresent()){
-      response = ResponseEntity.ok("Sikeres belépés!");
+      usersService.deleteAll();
+      usersService.saveSession(username);
+      String sessionUsername = usersService.getSessionUsername();
+      if(usersService.isTeacher(sessionUsername))
+      {
+        response = ResponseEntity.ok("Sikeres belépés! " + sessionUsername + " tanár!");
+      }
+      else
+      {
+        response = ResponseEntity.ok("Sikeres belépés! " + sessionUsername + " Nem tanár!");
+      }
     } else {
       response = ResponseEntity.status(404).body("Sikertelen belépés!");
     }
@@ -33,7 +44,7 @@ public class UniversityController {
   }
 
   @RequestMapping(path = "/reg", method = RequestMethod.POST)
-  public ResponseEntity<String> save(@RequestParam String username, @RequestParam String password){
+  public ResponseEntity<String> save(@RequestParam String username, @RequestParam String password, @RequestParam boolean teacher){
 
     Optional<UsersDTO> usersDTO1 = usersService.findByUsername(username);
 
@@ -43,7 +54,7 @@ public class UniversityController {
       response = ResponseEntity.status(404).body("Már létező felhasználó");
 
     } else {
-      usersService.save(username, password);
+      usersService.save(username, password, teacher);
       response = ResponseEntity.ok("Sikeres regisztráció");
     }
     return response;
